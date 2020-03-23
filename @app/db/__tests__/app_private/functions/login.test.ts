@@ -28,6 +28,7 @@ async function setupTestUser(client: PoolClient) {
 
 it("can login with username+password", () =>
   withRootDb(async client => {
+    expect(false).toBe(true);
     const testUser = await setupTestUser(client);
     const session = await login(client, USERNAME, PASSWORD);
     expect(session).toBeTruthy();
