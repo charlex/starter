@@ -48,5 +48,7 @@ if (process.argv.length > 3) {
   throw new Error(`Argument '${arg}' not understood`);
 } else {
   // Run once, so just run the tests
-  spawnSync("jest", ["-i", ...process.argv.slice(2)], opts);
+  const { status } = spawnSync("jest", ["-i", ...process.argv.slice(2)], opts);
+  console.log("Jest exited with status:", status);
+  process.exit(status);
 }
